@@ -4140,6 +4140,13 @@ print(list)
 mydb=MySQLdb.connect(host="localhost", user="root", password="MySQL@123",database="new_schema")
 mycursor=mydb.cursor()
 
+# CREATE TABLE `products` (
+#   `title` mediumtext NOT NULL,
+#   `image_url` text NOT NULL,
+#   `price` varchar(100) DEFAULT NULL,
+#   `detail` longtext NOT NULL
+# ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 mycursor.executemany("""
     INSERT INTO products (title, image_url, price, detail)
     VALUES (%(title)s, %(image_url)s, %(price)s, %(detail)s)""",list)
